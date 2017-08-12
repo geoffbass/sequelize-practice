@@ -26,7 +26,7 @@ describe('User model', function () {
 
   describe('fields:', function () {
 
-    it('include `first`, `last`, `age`, `email`, and `bio`', function () {
+   xit('include `first`, `last`, `age`, `email`, and `bio`', function () {
       return user.save()
       .then(function (savedUser) {
         expect(savedUser.first).to.equal('DB');
@@ -37,7 +37,7 @@ describe('User model', function () {
       })
     });
 
-    it('requires `email`', function () {
+    xit('requires `email`', function () {
       user.email = null;
 
       return user.validate()
