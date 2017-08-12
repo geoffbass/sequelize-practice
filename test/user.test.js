@@ -26,7 +26,7 @@ describe('User model', function () {
 
   describe('fields:', function () {
 
-   xit('include `first`, `last`, `age`, `email`, and `bio`', function () {
+   it('include `first`, `last`, `age`, `email`, and `bio`', function () {
       return user.save()
       .then(function (savedUser) {
         expect(savedUser.first).to.equal('DB');
@@ -37,7 +37,7 @@ describe('User model', function () {
       })
     });
 
-    xit('requires `email`', function () {
+    it('requires `email`', function () {
       user.email = null;
 
       return user.validate()
@@ -49,7 +49,7 @@ describe('User model', function () {
         });
     });
 
-    xit('age must be at least 18', function () {
+    it('age must be at least 18', function () {
       user.age = 17;
 
       return user.validate()
@@ -65,7 +65,7 @@ describe('User model', function () {
 
     describe('`fullName` getter', function () {
 
-      xit('returns `first` and `last` concatenated with a space between', function () {
+      it('returns `first` and `last` concatenated with a space between', function () {
         expect(user.fullName).to.equal('DB Admin');
       });
 
@@ -73,7 +73,7 @@ describe('User model', function () {
 
     describe('`haveBirthday` instance method', function () {
 
-      xit('returns a promise', function () {
+      it('returns a promise', function () {
         return user.save()
         .then(function () {
           const birthdayPromise = user.haveBirthday();
@@ -82,7 +82,7 @@ describe('User model', function () {
         });
       });
 
-      xit('the returned promise resolves to the user\'s new age', function () {
+      it('the returned promise resolves to the user\'s new age', function () {
         return user.save()
         .then(function () {
           return user.haveBirthday()
@@ -92,7 +92,7 @@ describe('User model', function () {
         });
       });
 
-      xit('saves the user\'s new age', function () {
+      it('saves the user\'s new age', function () {
         return user.save()
         .then(function () {
           return user.haveBirthday()
